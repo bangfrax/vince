@@ -27,21 +27,18 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 # Inherit from vince device
 $(call inherit-product, device/xiaomi/vince/device.mk)
 
-# Inherit some common Octavi stuff.
-$(call inherit-product, vendor/octavi/config/common_full_phone.mk)
+# Inherit some common SuperiorOS stuff.
+$(call inherit-product, vendor/superior/config/common.mk)
 
-# Include Octavi specific sepolicy
--include device/octavi/sepolicy/qcom/sepolicy.mk
+# Include SuperiorOS specific sepolicy
+-include device/superior/sepolicy/qcom/sepolicy.mk
 
 # Bootanimation Resolution
 TARGET_BOOT_ANIMATION_RES := 1080
 
 # Custom stuff
 TARGET_FACE_UNLOCK_SUPPORTED := true
-USE_PIXEL_CHARGER := true
-
-# Build Status
-OCTAVI_BUILD_TYPE := Official
+TARGET_INCLUDE_PIXEL_CHARGER := true
 
 # Exclude features that are not available on AOSP devices.
 PRODUCT_COPY_FILES += \
@@ -49,7 +46,7 @@ PRODUCT_COPY_FILES += \
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := vince
-PRODUCT_NAME := octavi_vince
+PRODUCT_NAME := superior_vince
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 5 Plus
 PRODUCT_MANUFACTURER := Xiaomi
